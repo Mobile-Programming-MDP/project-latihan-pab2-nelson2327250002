@@ -1,0 +1,53 @@
+[
+    {
+        "nama": "Andi",
+        "usia": 25,
+        "alamat" : {
+            "jalan": "Jl. Jendral Sudirman",
+            "kota" : "Jakarta",
+            "provinsi" : "DKI Jakarta"
+        },
+        "hobi" : ["membaca", "menulis", "menggambar"]
+    },
+    {
+        "nama": "Dewi",
+        "usia": 22,
+        "alamat" : {
+            "jalan": "Jl. Gatot Subroto",
+            "kota" : "Jakarta",
+            "provinsi" : "DKI Jakarta"
+        },
+        "hobi" : ["membaca", "menulis", "menggambar"]
+    },
+    {
+        "nama": "Cindy",
+        "usia": 27,
+        "alamat" : {
+            "jalan": "Jl. Pemuda",
+            "kota" : "Jakarta",
+            "provinsi" : "DKI Jakarta"
+        },
+        "hobi" : ["membaca", "menulis", "menggambar"]
+    },
+    {
+        "nama": "Eko",
+        "usia": 35,
+        "alamat" : {
+            "jalan": "Jl. Diponegoro",
+            "kota" : "Jakarta",
+            "provinsi" : "DKI Jakarta"
+        },
+        "hobi" : ["membaca", "menulis", "menggambar"]
+    },
+    {
+        "nama": "Fandi",
+        "usia": 40,
+        "alamat" : {
+            "jalan": "Jl. Asia Afrika",
+            "kota" : "Bandung",
+            "provinsi" : "Jawa Barat"
+        },
+        "hobi" : ["membaca", "menulis", "menggambar"]
+    }
+
+]
