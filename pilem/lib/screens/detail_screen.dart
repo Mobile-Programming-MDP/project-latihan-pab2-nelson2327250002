@@ -35,7 +35,7 @@ class DetailScreen extends StatelessWidget {
                   const Icon(Icons.calendar_month, color: Colors.blue),
                   const SizedBox(width: 10),
                   const Text(
-                    'Release Date',
+                    'Release Date:',
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(width: 10),
