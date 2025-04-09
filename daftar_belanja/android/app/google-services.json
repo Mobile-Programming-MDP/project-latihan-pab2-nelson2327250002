@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "323522395974",
+    "firebase_url": "https://first-app-nelson-default-rtdb.firebaseio.com",
+    "project_id": "first-app-nelson",
+    "storage_bucket": "first-app-nelson.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:323522395974:android:ce5372d0d932ef3d21ef47",
+        "android_client_info": {
+          "package_name": "com.example.daftar_belanja"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRABwJdHSVbPjxXMVgqow-1_6x8sjftGA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
