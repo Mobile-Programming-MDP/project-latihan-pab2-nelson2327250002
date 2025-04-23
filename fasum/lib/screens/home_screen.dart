@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget {
     } else if (diff.inMinutes < 60) {
       return '${diff.inMinutes} mins ago';
     } else if (diff.inHours < 24) {
-      return '${diff.inMinutes} hrs ago';
+      return '${diff.inHours} hrs ago';
     } else {
       return DateFormat('dd/MM/yyyy').format(dateTime);
     }
@@ -34,7 +34,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home'),
+        title: const Text("Home"),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         actions: [
           IconButton(
@@ -49,7 +49,7 @@ class HomeScreen extends StatelessWidget {
         stream:
             FirebaseFirestore.instance
                 .collection("posts")
-                .orderBy("createdAt", descending: true)
+                .orderBy('createdAt', descending: true)
                 .snapshots(),
         builder: (context, snapshot) {
           if (!snapshot.hasData)
@@ -65,6 +65,7 @@ class HomeScreen extends StatelessWidget {
               final createdAtStr = data['createdAt'];
               final fullName = data['fullName'] ?? 'Anonim';
 
+              //parse ke DateTime
               final createdAt = DateTime.parse(createdAtStr);
               return Card(
                 margin: const EdgeInsets.all(10),
@@ -88,7 +89,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                        horizontal: 16,
+                        horizontal: 10,
                         vertical: 10,
                       ),
                       child: Column(
@@ -129,11 +130,8 @@ class HomeScreen extends StatelessWidget {
           );
         },
       ),
-
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Add your action here
-        },
+        onPressed: () {},
         child: const Icon(Icons.add),
       ),
     );
