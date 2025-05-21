@@ -8,6 +8,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:http/http.dart' as http;
 
 class AddPostScreen extends StatefulWidget {
   const AddPostScreen({super.key});
@@ -221,6 +222,36 @@ class _AddPostScreenState extends State<AddPostScreen> {
     }
   }
 
+  Future<void> sendNotificationToTopic(String body, String senderName) async {
+    final url = Uri.parse('https:fasum-cloud-sable.vercel.app/send-to-topic');
+    final response = await http.post(
+      url,
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({
+        "topic": "berita-fasum",
+        "title": "🔔 Laporan Baru",
+        "body": body,
+        "senderName": senderName,
+        "senderPhotoUrl":
+            "https://static.vecteezy.com/system/resources/thumbnails/041/642/167/small_2x/ai-generated-portrait-of-handsome-smiling-young-man-with-folded-arms-isolated-free-png.png",
+      }),
+    );
+
+    if (response.statusCode == 200) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('✅ Notifikasi berhasil dikirim')),
+        );
+      }
+    } else {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('❌ Gagal kirim notifikasi: ${response.body}')),
+        );
+      }
+    }
+  }
+
   Future<void> _submitPost() async {
     if (_base64Image == null || _descriptionController.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -254,6 +285,9 @@ class _AddPostScreenState extends State<AddPostScreen> {
         'userId': uid,
       });
       if (!mounted) return;
+
+      sendNotificationToTopic(_descriptionController.text, fullName);
+
       Navigator.pop(context);
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Post uploaded successfully!')),
